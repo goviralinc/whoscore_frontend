@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gradientBorderColor {
+  border-color: "linear-gradient(to left, #67E59A , #DBA111 , #ED1C24)";
+}
