@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const Header = () => {
   return (
