@@ -1,7 +1,7 @@
 import React from "react";
 
 const TicketDetails = () => {
-  return <div>Ticket Details</div>;
+  return <div>Pending development</div>;
 };
 
 export default TicketDetails;
