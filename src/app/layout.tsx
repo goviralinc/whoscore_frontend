@@ -47,7 +47,7 @@ export default function RootLayout({
             </Link>
           </div>
         </header>
-        <main className="flex-1 pb-32">{children}</main>
+        <main className="flex-1 pb-28">{children}</main>
         <Footer />
       </body>
     </html>
