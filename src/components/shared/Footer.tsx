@@ -1,34 +1,48 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { twMerge } from "tailwind-merge";
 
 const Footer = () => {
+  const NAV = [
+    {
+      name: "Livescores",
+      href: "/livescores",
+      logo: "/flag.svg",
+    },
+    {
+      name: "TicketID",
+      href: "/",
+      logo: "/ticket.svg",
+    },
+    {
+      name: "Profile",
+      href: "#",
+      logo: "/user-square.svg",
+    },
+  ];
+
+  const pathname = usePathname();
+
   return (
     <footer className="bg-dark py-3 fixed bottom-4 rounded-full w-full px-5">
       <div className="flex gap-4 justify-evenly w-full">
-        <Link
-          href="#"
-          className="flex flex-col items-center gap-2 text-dark-200 text-sm"
-        >
-          <Image src="/flag.svg" alt="" width={24} height={24} />
-          Livescores
-        </Link>
-
-        <Link
-          href="#"
-          className="flex flex-col items-center gap-2 text-dark-200 text-sm"
-        >
-          <Image src="/ticket.svg" alt="" width={24} height={24} />
-          Ticket ID
-        </Link>
-
-        <Link
-          href="#"
-          className="flex flex-col items-center gap-2 text-dark-200 text-sm"
-        >
-          <Image src="/user-square.svg" alt="" width={24} height={24} />
-          Profile
-        </Link>
+        {NAV.map((item, i) => (
+          <Link
+            key={i}
+            href={item.href}
+            className={twMerge(
+              "flex flex-col items-center gap-2 text-dark-200 text-sm",
+              pathname === item.href && "text-primary"
+            )}
+          >
+            <Image src={item.logo} alt="" width={24} height={24} />
+            {item.name}
+          </Link>
+        ))}
       </div>
     </footer>
   );
