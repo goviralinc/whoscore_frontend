@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IoCaretBack } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 function Cashout() {
   return (
@@ -103,7 +106,15 @@ function Cashout() {
           <div className="flex justify-between gap-4 items-center">
             <p className="text-xl">N100,000</p>
 
-            <button className="bg-[#67E59A] py-2 flex items-center justify-center w-32 rounded-full text-dark">
+            <button
+              onClick={() =>
+                toast.success("You have successfully cashed out N70,000", {
+                  theme: "colored",
+                  style: { background: "#039855", color: "white" },
+                })
+              }
+              className="bg-[#67E59A] py-2 flex items-center justify-center w-32 rounded-full text-dark"
+            >
               Proceed
             </button>
           </div>

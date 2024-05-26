@@ -28,7 +28,7 @@ const Footer = () => {
   const pathname = usePathname();
 
   return (
-    <footer className="bg-dark py-3 fixed bottom-4 rounded-full w-full px-5">
+    <footer className="bg-dark max-w-2xl mx-auto py-3 fixed bottom-4 rounded-full w-full px-5">
       <div className="flex gap-4 justify-evenly w-full">
         {NAV.map((item, i) => (
           <Link
