@@ -1,3 +1,4 @@
+import Header from "@/components/shared/Header";
 import SelectOptions from "@/components/shared/Select";
 import Ticket from "@/components/shared/Ticket";
 import Image from "next/image";

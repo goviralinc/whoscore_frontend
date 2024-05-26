@@ -1,9 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Ticket = () => {
   return (
-    <div className="flex items-center justify-between gap-4 py-2 border-b border-b-dark-200 text-xs">
+    <Link
+      href="/ticket/details"
+      className="flex items-center justify-between gap-4 py-2 border-b border-b-dark-200 text-xs"
+    >
       <div className="flex items-center gap-2">
         <Image
           src="/SportyBet.png"
@@ -20,7 +24,7 @@ const Ticket = () => {
       </div>
 
       <div className="bg-black rounded-full py-1 px-3">N100,000.43</div>
-    </div>
+    </Link>
   );
 };
 
