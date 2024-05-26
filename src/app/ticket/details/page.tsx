@@ -168,9 +168,12 @@ function TicketDetails() {
               <span className="text-xs text-dark-200">Potential winnings</span>
               <p className="text-xl">N100,000</p>
             </div>
-            <button className="bg-[#67E59A] w-32 rounded-full text-dark">
+            <Link
+              href="/cashout"
+              className="bg-[#67E59A] flex items-center justify-center w-32 rounded-full text-dark"
+            >
               Cash Out
-            </button>
+            </Link>
           </div>
         </div>
       </div>
