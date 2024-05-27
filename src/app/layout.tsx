@@ -29,9 +29,7 @@ export default function RootLayout({
           "bg-black text-white max-w-2xl mx-auto"
         )}
       >
-        <Header />
-        <main className="flex-1 pb-28">{children}</main>
-        <Footer />
+        {children}
         <ToastContainer hideProgressBar autoClose={3000} />
       </body>
     </html>
