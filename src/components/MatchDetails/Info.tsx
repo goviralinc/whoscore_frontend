@@ -62,7 +62,6 @@ function Info() {
 
       <div>
         <h2 className="text-dark-200">Table</h2>
-
         <div className="bg-[#1B1B1B] rounded-2xl mb-5 pt-3 pb-5 px-1">
           <div className="bg-black flex justify-between items-center gap-3 p-3 text-dark-200 font-semibold rounded-full text-xs">
             <div className="flex items-center gap-2">

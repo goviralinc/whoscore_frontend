@@ -3,6 +3,8 @@
 import React from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import Info from "./Info";
+import Lineup from "./Lineup";
+import LeagueTable from "./Table";
 
 const DetailTabs = () => {
   const DETAILS_TAB: string[] = ["Info", "Lineup", "Stats", "Table", "H2H"];
@@ -34,9 +36,7 @@ const DetailTabs = () => {
         className="grow p-5 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
         value="lineup"
       >
-        <p className="mb-5 text-dark-200 leading-normal">
-          Lineup development pending...
-        </p>
+        <Lineup />
       </Tabs.Content>
 
       <Tabs.Content
@@ -52,9 +52,7 @@ const DetailTabs = () => {
         className="grow p-5 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
         value="table"
       >
-        <p className="mb-5 text-dark-200 leading-normal">
-          Table development pending...
-        </p>
+        <LeagueTable />
       </Tabs.Content>
 
       <Tabs.Content
