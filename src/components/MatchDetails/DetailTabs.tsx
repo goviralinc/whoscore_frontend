@@ -5,6 +5,7 @@ import * as Tabs from "@radix-ui/react-tabs";
 import Info from "./Info";
 import Lineup from "./Lineup";
 import LeagueTable from "./Table";
+import Stats from "./Stats";
 
 const DetailTabs = () => {
   const DETAILS_TAB: string[] = ["Info", "Lineup", "Stats", "Table", "H2H"];
@@ -43,9 +44,7 @@ const DetailTabs = () => {
         className="grow p-5 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
         value="stats"
       >
-        <p className="mb-5 text-dark-200 leading-normal">
-          Stats development pending...
-        </p>
+        <Stats />
       </Tabs.Content>
 
       <Tabs.Content

@@ -16,7 +16,7 @@ function MatchDetails() {
           >
             <IoCaretBack />
           </Link>
-          <strong>Cash Out</strong>
+          <strong>Match Details</strong>
         </div>
 
         <div>
