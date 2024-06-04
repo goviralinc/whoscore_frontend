@@ -20,7 +20,7 @@ const Footer = () => {
     },
     {
       name: "Profile",
-      href: "#",
+      href: "/profile",
       logo: "/user-square.svg",
     },
   ];
