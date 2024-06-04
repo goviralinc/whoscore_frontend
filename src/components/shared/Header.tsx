@@ -18,7 +18,7 @@ const Header = () => {
         </div>
 
         <Link
-          href="#"
+          href="/auth/login"
           className="font-bold underline text-primary hover:opacity-90 shrink-0 h-fit"
         >
           Sign in
