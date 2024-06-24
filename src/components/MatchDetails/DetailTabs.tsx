@@ -6,6 +6,7 @@ import Info from "./Info";
 import Lineup from "./Lineup";
 import LeagueTable from "./Table";
 import Stats from "./Stats";
+import H2H from "./H2H";
 
 const DetailTabs = () => {
   const DETAILS_TAB: string[] = ["Info", "Lineup", "Stats", "Table", "H2H"];
@@ -58,9 +59,7 @@ const DetailTabs = () => {
         className="grow p-5 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
         value="h2h"
       >
-        <p className="mb-5 text-dark-200 leading-normal">
-          H2H development pending...
-        </p>
+        <H2H />
       </Tabs.Content>
     </Tabs.Root>
   );
