@@ -36,6 +36,27 @@ const SelectOptions = () => {
             </Select.Item>
 
             <Select.Item
+              value="Betway"
+              className="leading-none text-white rounded-[3px] relative select-none data-[disabled]:text-dark-200 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-dark-200 py-3 w-full px-4"
+            >
+              <Select.ItemText>Betway</Select.ItemText>
+            </Select.Item>
+
+            <Select.Item
+              value="Bet365"
+              className="leading-none text-white rounded-[3px] relative select-none data-[disabled]:text-dark-200 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-dark-200 py-3 w-full px-4"
+            >
+              <Select.ItemText>Bet365</Select.ItemText>
+            </Select.Item>
+
+            <Select.Item
+              value="1xBet"
+              className="leading-none text-white rounded-[3px] relative select-none data-[disabled]:text-dark-200 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-dark-200 py-3 w-full px-4"
+            >
+              <Select.ItemText>1xBet</Select.ItemText>
+            </Select.Item>
+
+            <Select.Item
               value="Bet"
               className="leading-none text-white rounded-[3px] relative select-none data-[disabled]:text-dark-200 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-dark-200 py-3 w-full px-4"
             >

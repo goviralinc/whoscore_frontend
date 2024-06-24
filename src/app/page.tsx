@@ -1,14 +1,20 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Ads from "@/components/shared/Ads";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import SelectOptions from "@/components/shared/Select";
 import Ticket from "@/components/shared/Ticket";
-import Image from "next/image";
 
 export default function Home() {
+  const [showAds, setShowAds] = useState(false);
+
   return (
     <>
       <Header />
-      <div className="px-5 pt-7 pb-28">
+      <div className="px-5 pt-7 pb-28 w-full">
         <section className="border-2 rounded-2xl px-5 py-7">
           <div className="mb-8">
             <Image
@@ -35,15 +41,23 @@ export default function Home() {
 
             <label
               htmlFor="platform"
-              className="text-xs text-dark-200 block mt-4"
+              className="text-xs text-dark-200 block mt-4 w-full"
             >
               Select Platform
               <SelectOptions />
             </label>
 
-            <button className="rounded-2xl bg-primary hover:bg-opacity-90 w-full mt-7 py-4 text-dark font-semibold">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setShowAds(true);
+              }}
+              className="rounded-2xl bg-primary hover:bg-opacity-90 w-full mt-7 py-4 text-dark font-semibold"
+            >
               Load Games
             </button>
+
+            {showAds && <Ads showAds={showAds} setShowAds={setShowAds} />}
           </form>
         </section>
 
