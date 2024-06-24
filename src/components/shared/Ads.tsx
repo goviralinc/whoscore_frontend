@@ -42,13 +42,13 @@ const Ads = ({ showAds, setShowAds }: TAds) => {
               muted
             ></video>
 
-            <div className="px-2">
+            <div className="px-2 flex ">
               <button
                 onClick={() => {
                   setShowAds(!showAds);
                   router.push("/");
                 }}
-                className="border p-2 md:py-3 w-1/3 md:w-1/4 text-sm border-gray-500 mr-2 uppercase text-gray-200 md:text-inherit rounded disabled:cursor-not-allowed disabled:text-black disabled:bg-blue-300"
+                className="border flex-1  p-2 md:py-3 text-sm border-gray-500 mr-2 uppercase text-gray-200 md:text-inherit rounded disabled:cursor-not-allowed disabled:text-black disabled:bg-blue-300"
                 disabled={counter !== 0}
               >
                 skip ads {counter === 0 ? "" : "in " + counter}
@@ -57,7 +57,7 @@ const Ads = ({ showAds, setShowAds }: TAds) => {
                 href="https://accelerateplus.tv/?fbclid=PAAabvw24Xn-IkxYNCuZNyRWD2b_IfNNDOE4K1bOfNbmjG7iPW8zVh0nNPSFg"
                 target="_blank"
                 rel="noreferrer"
-                className="py-2 px-6 ml-2 w-3/5 md:w-2/5 animate-pulse inline-block md:py-3 text-sm rounded bg-blue-600 uppercase text-black sm:justify-center"
+                className="py-2 px-6 ml-2 flex-1 animate-pulse inline-block md:py-3 text-sm rounded bg-blue-600 uppercase text-black sm:justify-center"
               >
                 Sign up
               </a>
