@@ -71,51 +71,8 @@ function TicketDetails() {
         </div>
 
         <Accordion.Root type="single" defaultValue="item-1">
-          <Accordion.Item
-            value="item-1"
-            className="bg-[#1B1B1B] rounded-2xl mb-5 pt-3 pb-5 px-1"
-          >
-            <Accordion.Trigger className="bg-[#252525]  w-full flex justify-between items-center gap-3 p-3 text-dark-200 font-semibold rounded-full text-xs">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/SportyBet.png"
-                  alt="Sportbet logo"
-                  height={22}
-                  width={22}
-                />
-                <h2>Premier League</h2>
-              </div>
-              <span className="text-sm flex items-center gap-1">
-                <FaCaretDown className="text-[#67E59A]" />
-                1.20
-              </span>
-            </Accordion.Trigger>
-
-            <Accordion.Content>
-              <div className="text-sm px-1 pt-2">
-                <div className="flex justify-between gap-4 mb-2">
-                  <span className="text-dark-200">1X2</span>
-                  <div className="flex items-center gap-1">
-                    <span>status:</span>
-                    <span className="text-[#67E59A]">Won</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between gap-4 mb-2">
-                  <div>
-                    <span>Man City vs Arsenal</span>
-                    <strong className="text-[#67E59A] block mt-2">
-                      2 : 0 H2 | 56'
-                    </strong>
-                  </div>
-                  <span className="text-dark-200 self-end">
-                    30/08/2023 10:24AM
-                  </span>
-                </div>
-              </div>
-            </Accordion.Content>
-          </Accordion.Item>
-
+          <BetDetail />
+          {/***
           <Accordion.Item
             value="item-2"
             className="bg-[#1B1B1B] rounded-2xl mb-5 pt-3 pb-5 px-1"
@@ -132,7 +89,7 @@ function TicketDetails() {
               </div>
               <span className="text-sm flex items-center gap-1">
                 <FaCaretDown className="text-[#67E59A]" />
-                1.20
+                1.22
               </span>
             </Accordion.Trigger>
 
@@ -160,6 +117,7 @@ function TicketDetails() {
               </div>
             </Accordion.Content>
           </Accordion.Item>
+          */}
         </Accordion.Root>
 
         <div className="bg-black rounded-full px-4 py-2">
@@ -178,6 +136,53 @@ function TicketDetails() {
         </div>
       </div>
     </div>
+  );
+}
+
+function BetDetail() {
+  return (
+    <Accordion.Item
+      value="item-1"
+      className="bg-[#1B1B1B] rounded-2xl mb-5 pt-3 pb-5 px-1"
+    >
+      <Accordion.Trigger className="bg-[#252525]  w-full flex justify-between items-center gap-3 p-3 text-dark-200 font-semibold rounded-full text-xs">
+        <div className="flex items-center gap-2">
+          <Image
+            src="/SportyBet.png"
+            alt="Sportbet logo"
+            height={22}
+            width={22}
+          />
+          <h2>Premier League</h2>
+        </div>
+        <span className="text-sm flex items-center gap-1">
+          <FaCaretDown className="text-[#67E59A]" />
+          1.20
+        </span>
+      </Accordion.Trigger>
+
+      <Accordion.Content>
+        <div className="text-sm px-1 pt-2">
+          <div className="flex justify-between gap-4 mb-2">
+            <span className="text-dark-200">1X2</span>
+            <div className="flex items-center gap-1">
+              <span>status:</span>
+              <span className="text-[#67E59A]">Won</span>
+            </div>
+          </div>
+
+          <div className="flex justify-between gap-4 mb-2">
+            <div>
+              <span>Man City vs Arsenal</span>
+              <strong className="text-[#67E59A] block mt-2">
+                2 : 0 H2 | 56'
+              </strong>
+            </div>
+            <span className="text-dark-200 self-end">30/08/2023 10:24AM</span>
+          </div>
+        </div>
+      </Accordion.Content>
+    </Accordion.Item>
   );
 }
 

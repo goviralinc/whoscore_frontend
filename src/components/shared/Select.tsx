@@ -4,7 +4,7 @@ import React from "react";
 import * as Select from "@radix-ui/react-select";
 import { FaCaretDown } from "react-icons/fa6";
 
-const SelectOptions = () => {
+const SelectOptions = (onValueChange: any, value: any) => {
   return (
     <Select.Root>
       <Select.Trigger
@@ -22,21 +22,21 @@ const SelectOptions = () => {
           <Select.ScrollUpButton />
           <Select.Viewport>
             <Select.Item
-              value="sporty"
+              value="sportybet"
               className="leading-none text-white rounded-[3px] relative select-none data-[disabled]:text-dark-200 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-dark-200 py-3 w-full px-4"
             >
               <Select.ItemText>Sporty</Select.ItemText>
             </Select.Item>
 
             <Select.Item
-              value="Bet9ja"
+              value="bet9ja"
               className="leading-none text-white rounded-[3px] relative select-none data-[disabled]:text-dark-200 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-dark-200 py-3 w-full px-4"
             >
               <Select.ItemText>Bet9ja</Select.ItemText>
             </Select.Item>
 
             <Select.Item
-              value="Betway"
+              value="betway"
               className="leading-none text-white rounded-[3px] relative select-none data-[disabled]:text-dark-200 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-dark-200 py-3 w-full px-4"
             >
               <Select.ItemText>Betway</Select.ItemText>

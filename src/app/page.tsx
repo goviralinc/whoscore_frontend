@@ -10,6 +10,8 @@ import Ticket from "@/components/shared/Ticket";
 
 export default function Home() {
   const [showAds, setShowAds] = useState(false);
+  const [ticketId, setTicketId] = useState('');
+  const [platform, setPlatform] = useState('');
 
   return (
     <>
@@ -35,6 +37,8 @@ export default function Home() {
               <input
                 type="text"
                 id="ticketID"
+                value={ticketId}
+                onChange={e => setTicketId(e.target.value)}
                 className="w-full bg-transparent border border-dark-200 rounded-2xl p-4 mt-1 text-white"
               />
             </label>
@@ -44,12 +48,16 @@ export default function Home() {
               className="text-xs text-dark-200 block mt-4 w-full"
             >
               Select Platform
-              <SelectOptions />
+              <SelectOptions
+               
+              />
+
             </label>
 
             <button
               onClick={(e) => {
                 e.preventDefault();
+                //alert(ticketId);
                 setShowAds(true);
               }}
               className="rounded-2xl bg-primary hover:bg-opacity-90 w-full mt-7 py-4 text-dark font-semibold"
