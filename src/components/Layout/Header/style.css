@@ -1,0 +1,5 @@
+.user-border {
+  border: 20px solid transparent;
+  border-image: url("/eclipse.png") 20 round;
+  border-radius: 50%;
+}

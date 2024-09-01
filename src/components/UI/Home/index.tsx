@@ -6,7 +6,7 @@ import Ads from "@/components/Common/Ads";
 import SelectOptions from "@/components/Common/Select";
 import Ticket from "@/components/Common/Ticket";
 import Footer from "@/components/Layout/Footer";
-import Header from "@/components/Layout/Navbar";
+import Header from "@/components/Layout/Header";
 
 const Home = () => {
   const [showAds, setShowAds] = useState(false);

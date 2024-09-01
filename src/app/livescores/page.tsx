@@ -1,6 +1,6 @@
 import Match from "@/components/livescores/Match";
 import Footer from "@/components/Layout/Footer";
-import Header from "@/components/Layout/Navbar";
+import Header from "@/components/Layout/Header";
 import Image from "next/image";
 import React from "react";
 import { scn } from "@/lib/utils/fonts";
