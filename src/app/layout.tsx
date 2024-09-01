@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
+import { sbt } from "@/lib/utils/fonts";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={twMerge(inter.className, "bg-black text-white max-w-2xl mx-auto")}>
+      <body className={twMerge(sbt.className, "bg-black text-white max-w-2xl mx-auto")}>
         {children}
         <ToastContainer hideProgressBar autoClose={3000} />
       </body>
