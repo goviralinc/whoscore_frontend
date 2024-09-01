@@ -32,7 +32,7 @@ const Footer = () => {
   const pathname = usePathname();
 
   return (
-    <footer className="bg-black w-full mx-auto py-3 fixed bottom-4 rounded-full px-5">
+    <footer className="bg-black w-full mx-auto py-3 max-w-2xl fixed bottom-4 rounded-full px-5">
       <div className="flex gap-4 justify-evenly w-full">
         {footerLinks.map((item, i) => (
           <Link
