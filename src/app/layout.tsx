@@ -6,9 +6,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
-import Footer from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,12 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={twMerge(
-          inter.className,
-          "bg-black text-white max-w-2xl mx-auto"
-        )}
-      >
+      <body className={twMerge(inter.className, "bg-black text-white max-w-2xl mx-auto")}>
         {children}
         <ToastContainer hideProgressBar autoClose={3000} />
       </body>
