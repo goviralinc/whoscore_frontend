@@ -31,7 +31,7 @@ function LeagueTable() {
             <td className="py-2 px-1">1</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/manCity.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/manCity.png" alt="logo" width={20} height={20} />
                 <span>Man City</span>
               </div>
             </td>
@@ -48,7 +48,7 @@ function LeagueTable() {
             <td className="py-2 px-1">2</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/chelsea.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                 <span>Chelsea</span>
               </div>
             </td>
@@ -65,7 +65,7 @@ function LeagueTable() {
             <td className="py-2 px-1">3</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/chelsea.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                 <span>Chelsea</span>
               </div>
             </td>
@@ -82,7 +82,7 @@ function LeagueTable() {
             <td className="py-2 px-1">4</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/chelsea.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                 <span>Chelsea</span>
               </div>
             </td>
@@ -99,7 +99,7 @@ function LeagueTable() {
             <td className="py-2 px-1">5</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/chelsea.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                 <span>Chelsea</span>
               </div>
             </td>
@@ -116,7 +116,7 @@ function LeagueTable() {
             <td className="py-2 px-1">6</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/chelsea.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                 <span>Chelsea</span>
               </div>
             </td>
@@ -133,7 +133,7 @@ function LeagueTable() {
             <td className="py-2 px-1">6</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/chelsea.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                 <span>Chelsea</span>
               </div>
             </td>
@@ -150,7 +150,7 @@ function LeagueTable() {
             <td className="py-2 px-1">7</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/chelsea.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                 <span>Chelsea</span>
               </div>
             </td>
@@ -167,7 +167,7 @@ function LeagueTable() {
             <td className="py-2 px-1">8</td>
             <td className="py-2 px-1">
               <div className="flex gap-2 items-center text-dark-200">
-                <Image src="/chelsea.png" alt="logo" width={20} height={20} />
+                <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                 <span>Chelsea</span>
               </div>
             </td>

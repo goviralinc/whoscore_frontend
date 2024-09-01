@@ -19,9 +19,7 @@ function Info() {
             <p>Time: Saturday, 16 Sep 2024. 12:30</p>
           </div>
 
-          <button className="bg-black py-1 rounded-full px-4 font-bold">
-            Watch
-          </button>
+          <button className="bg-black py-1 rounded-full px-4 font-bold">Watch</button>
         </div>
       </div>
 
@@ -30,7 +28,7 @@ function Info() {
         <div className="bg-[#1B1B1B] rounded-2xl mb-5 pt-3 pb-5 px-2">
           <div className="grid grid-cols-2 items-center border-b border-b-[#252525] py-2">
             <div className="flex gap-2 items-center text-dark-200">
-              <Image src="/manCity.png" alt="logo" width={20} height={20} />
+              <Image src="/clubs/manCity.png" alt="logo" width={20} height={20} />
               <span>Man City</span>
             </div>
 
@@ -45,7 +43,7 @@ function Info() {
 
           <div className="grid grid-cols-2 items-center border-b border-b-[#252525] py-2">
             <div className="flex gap-2 items-center text-dark-200">
-              <Image src="/manCity.png" alt="logo" width={20} height={20} />
+              <Image src="/clubs/manCity.png" alt="logo" width={20} height={20} />
               <span>Chelsea</span>
             </div>
 
@@ -65,12 +63,7 @@ function Info() {
         <div className="bg-[#1B1B1B] rounded-2xl mb-5 pt-3 pb-5 px-1">
           <div className="bg-black flex justify-between items-center gap-3 p-3 text-dark-200 font-semibold rounded-full text-xs">
             <div className="flex items-center gap-2">
-              <Image
-                src="/whoscoreFlag.svg"
-                alt="logo"
-                height={22}
-                width={22}
-              />
+              <Image src="/whoscoreFlag.svg" alt="logo" height={22} width={22} />
               <h2>Premier</h2>
             </div>
             <span className="text-[#67E59A] text-sm">Live</span>
@@ -90,12 +83,7 @@ function Info() {
                 <td className="py-2">1</td>
                 <td className="py-2">
                   <div className="flex gap-2 items-center text-dark-200">
-                    <Image
-                      src="/manCity.png"
-                      alt="logo"
-                      width={20}
-                      height={20}
-                    />
+                    <Image src="/clubs/manCity.png" alt="logo" width={20} height={20} />
                     <span>Man City</span>
                   </div>
                 </td>
@@ -107,12 +95,7 @@ function Info() {
                 <td className="py-2">1</td>
                 <td className="py-2">
                   <div className="flex gap-2 items-center text-dark-200">
-                    <Image
-                      src="/chelsea.png"
-                      alt="logo"
-                      width={20}
-                      height={20}
-                    />
+                    <Image src="/clubs/chelsea.png" alt="logo" width={20} height={20} />
                     <span>Chelsea</span>
                   </div>
                 </td>

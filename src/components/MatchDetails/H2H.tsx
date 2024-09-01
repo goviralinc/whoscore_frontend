@@ -19,11 +19,7 @@ function H2H() {
               <div className="flex gap-4 items-center flex-1">
                 <span className="text-lg font-bold">8</span>
 
-                <ProgressStat
-                  progressV={60}
-                  translateNegative={false}
-                  bgColor="orange"
-                />
+                <ProgressStat progressV={60} translateNegative={false} bgColor="orange" />
               </div>
               <div className="flex gap-4 items-center flex-1">
                 <ProgressStat progressV={50} bgColor="aqua" />
@@ -38,11 +34,7 @@ function H2H() {
               <div className="flex gap-4 items-center flex-1">
                 <span className="text-lg font-bold">0</span>
 
-                <ProgressStat
-                  progressV={0}
-                  translateNegative={false}
-                  bgColor="orange"
-                />
+                <ProgressStat progressV={0} translateNegative={false} bgColor="orange" />
               </div>
               <div className="flex gap-4 items-center flex-1">
                 <ProgressStat progressV={0} bgColor="aqua" />
@@ -57,11 +49,7 @@ function H2H() {
               <div className="flex gap-4 items-center flex-1">
                 <span className="text-lg font-bold">2</span>
 
-                <ProgressStat
-                  progressV={20}
-                  translateNegative={false}
-                  bgColor="orange"
-                />
+                <ProgressStat progressV={20} translateNegative={false} bgColor="orange" />
               </div>
               <div className="flex gap-4 items-center flex-1">
                 <ProgressStat progressV={60} bgColor="aqua" />
@@ -71,18 +59,12 @@ function H2H() {
           </div>
 
           <div className="mb-3">
-            <h2 className="text-center text-xs text-dark-200 mb-1">
-              Goal Scored
-            </h2>
+            <h2 className="text-center text-xs text-dark-200 mb-1">Goal Scored</h2>
             <div className="flex gap-4 ">
               <div className="flex gap-4 items-center flex-1">
                 <span className="text-lg font-bold">8</span>
 
-                <ProgressStat
-                  progressV={70}
-                  translateNegative={false}
-                  bgColor="orange"
-                />
+                <ProgressStat progressV={70} translateNegative={false} bgColor="orange" />
               </div>
               <div className="flex gap-4 items-center flex-1">
                 <ProgressStat progressV={35} bgColor="aqua" />
@@ -96,20 +78,15 @@ function H2H() {
       <div className="bg-dark rounded-2xl mb-5 pt-3 pb-5 px-1">
         <div className="bg-black flex justify-between items-center gap-3 p-3 text-dark-200 font-semibold rounded-full text-xs">
           <div className="flex items-center gap-2">
-            <Image
-              src="/manCity.png"
-              alt="Sportbet logo"
-              height={22}
-              width={22}
-            />
+            <Image src="/clubs/manCity.png" alt="Sportbet logo" height={22} width={22} />
             <h2>Premier League</h2>
           </div>
           <span>All Matches</span>
         </div>
         <div className="mt-4">
+          {/* <Match />
           <Match />
-          <Match />
-          <Match />
+          <Match /> */}
         </div>
       </div>
     </div>

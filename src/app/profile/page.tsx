@@ -42,7 +42,7 @@ function Profile() {
         </div>
 
         <div className="bg-dark flex gap-2 justify-center items-center rounded-full px-2 py-3 my-5 uppercase">
-          <Image src="/manCity.png" alt="Man City logo" width={30} height={30} />
+          <Image src="/clubs/manCity.png" alt="Man City logo" width={30} height={30} />
           <span>Man City</span>
           <span className="text-dark-200">favorite football club</span>
         </div>

@@ -1,45 +1,49 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { twMerge } from "tailwind-merge";
+import FlagIcon from "@/components/Common/Icons/flag";
+import UserProfIcon from "@/components/Common/Icons/user-profile";
+import TicketIcon from "@/components/Common/Icons/ticket";
+import { cloneElement as c } from "react";
+
+type FLink = { name: string; path: string; icon: JSX.Element };
+
+const footerLinks: FLink[] = [
+  {
+    name: "Livescores",
+    path: "/livescores",
+    icon: <FlagIcon className="text-primary" />,
+  },
+  {
+    name: "TicketID",
+    path: "/",
+    icon: <TicketIcon />,
+  },
+  {
+    name: "Profile",
+    path: "/profile",
+    icon: <UserProfIcon />,
+  },
+];
 
 const Footer = () => {
-  const NAV = [
-    {
-      name: "Livescores",
-      href: "/livescores",
-      logo: "/flag.svg",
-    },
-    {
-      name: "TicketID",
-      href: "/",
-      logo: "/ticket.svg",
-    },
-    {
-      name: "Profile",
-      href: "/profile",
-      logo: "/user-square.svg",
-    },
-  ];
-
   const pathname = usePathname();
 
   return (
-    <footer className="bg-dark max-w-2xl mx-auto py-3 fixed bottom-4 rounded-full w-full px-5">
+    <footer className="bg-black w-full mx-auto py-3 fixed bottom-4 rounded-full px-5">
       <div className="flex gap-4 justify-evenly w-full">
-        {NAV.map((item, i) => (
+        {footerLinks.map((item, i) => (
           <Link
             key={i}
-            href={item.href}
+            href={item.path}
             className={twMerge(
-              "flex flex-col items-center gap-2 text-dark-200 text-sm",
-              pathname === item.href && "text-primary"
+              "flex flex-col items-center gap-2 text-dark-200 duration-300 text-sm",
+              pathname === item.path && "text-primary"
             )}
           >
-            <Image src={item.logo} alt="" width={24} height={24} />
+            {c(item.icon, { color: pathname === item.path ? "#67E59A" : "#424242" })}
             {item.name}
           </Link>
         ))}
