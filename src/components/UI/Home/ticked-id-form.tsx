@@ -14,6 +14,8 @@ import { useState } from "react";
 import Ads from "@/components/Common/Ads";
 import { toastError } from "@/lib/utils/toast";
 import { useModal } from "@/lib/providers/modal";
+import useTicket from "@/lib/store/ticket.store";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   ticketId: z.string().min(2, {
@@ -32,12 +34,23 @@ const TicketIdForm = () => {
 
   const { hideModal, showModal } = useModal();
 
-  const { mutate, isPending } = useMutation({ mutationFn: getTicketInfo, mutationKey: ["getTicketInfo"] });
+  const { updateItem, updateTicketInfo } = useTicket();
+
+  const router = useRouter();
+
+  const { mutate, isPending, data } = useMutation({ mutationFn: getTicketInfo, mutationKey: ["getTicketInfo"] });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     mutate(values, {
       onSuccess: () => {
-        showModal(<Ads proceedAction={hideModal} />);
+        if (!data) {
+          toastError("No ticket found with the provided ID");
+          return;
+        }
+
+        updateItem(data);
+        updateTicketInfo({ platform: values.betPlatform, ticketID: values.ticketId });
+        showModal(<Ads proceedAction={() => router.push(`/ticket/details`)} />);
       },
       onError: () => {
         toastError("An error occurred. Please try again");
