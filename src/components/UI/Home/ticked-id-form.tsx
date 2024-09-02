@@ -40,17 +40,32 @@ const TicketIdForm = () => {
 
   const { mutate, isPending, data } = useMutation({ mutationFn: getTicketInfo, mutationKey: ["getTicketInfo"] });
 
+  const getPlatformName = (name: string) => {
+    if (name.toLowerCase() === "sportybet") {
+      return "SportyBet";
+    } else if (form.getValues("betPlatform") === "bet9ja") {
+      return "Bet9ja";
+    } else {
+      return "BetKing";
+    }
+  };
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     mutate(values, {
       onSuccess: () => {
+        // console.log({ data });
+
         if (!data) {
           toastError("No ticket found with the provided ID");
           return;
         }
 
         updateItem(data);
-        updateTicketInfo({ platform: values.betPlatform, ticketID: values.ticketId });
-        showModal(<Ads proceedAction={() => router.push(`/ticket/details`)} />);
+        updateTicketInfo({
+          platform: { value: values.betPlatform, name: getPlatformName(values.betPlatform) },
+          ticketID: values.ticketId,
+        });
+        showModal(<Ads proceedAction={() => (hideModal(), router.push(`/ticket/details`))} />);
       },
       onError: () => {
         toastError("An error occurred. Please try again");
@@ -80,7 +95,7 @@ const TicketIdForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-[#8b8b8b] text-sm">Select Platform</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isPending}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select platform" />

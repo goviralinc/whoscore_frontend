@@ -23,23 +23,25 @@ export type ApiResponse<T = null> = {
 };
 
 export type Bet = {
-  addType: string;
-  homeTeam: string;
-  awayTeam: string;
+  oddType: string;
+  hometeam: string;
+  awayteam: string;
   time: string;
   odds: string;
 };
 
 export type Platform = "sportybet" | "bet9ja" | "betking";
 
+export type TicketInfo = {
+  date: string;
+  type: "Multiple" | "Single";
+  grossWinnings: string;
+  totalStake: string;
+  totalOdds: string;
+  potentialWin: string;
+};
+
 export type ITicket = {
   bets: Bet[];
-  info: {
-    date: string;
-    type: "Multiple" | "Single";
-    grossWinnings: string;
-    totalStake: string;
-    totalOdds: string;
-    potentialWin: string;
-  };
+  info: TicketInfo;
 };

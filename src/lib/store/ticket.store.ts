@@ -1,10 +1,12 @@
 import { create } from "zustand";
-import { ITicket, Platform } from "../types";
+import { ITicket } from "../types";
 
-type TicketState = { item?: ITicket; ticketInfo?: { platform: any; ticketID: string } };
+export type UseTicketInfo = { platform: { value: string; name: string }; ticketID: string };
+
+type TicketState = { item?: ITicket; ticketInfo?: UseTicketInfo };
 type TicketActions = {
   updateItem: (item: ITicket) => void;
-  updateTicketInfo: (ticketInfo: { platform: any; ticketID: string }) => void;
+  updateTicketInfo: (ticketInfo: UseTicketInfo) => void;
 };
 
 type TicketType = TicketState & TicketActions;
