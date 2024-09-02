@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-import { ToastContainer } from "react-toastify";
-
-import "react-toastify/dist/ReactToastify.css";
-import "./globals.css";
 import { sbt } from "@/lib/utils/fonts";
+import Providers from "@/lib/providers";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "WhoScore",
+  title: {
+    default: "Whoscore",
+    template: `%s | Whoscore`,
+  },
   description: "+",
 };
 
@@ -20,10 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={twMerge(sbt.className, "bg-black text-white max-w-2xl mx-auto")}>
-        {children}
-        <ToastContainer hideProgressBar autoClose={3000} />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

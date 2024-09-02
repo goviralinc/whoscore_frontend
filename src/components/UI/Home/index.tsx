@@ -8,6 +8,8 @@ import Ticket from "@/components/Common/Ticket";
 import Footer from "@/components/Layout/Footer";
 import Header from "@/components/Layout/Header";
 
+import {} from "react-hook-form";
+
 const Home = () => {
   const [showAds, setShowAds] = useState(false);
   const [ticketId, setTicketId] = useState("");

@@ -5,3 +5,11 @@
 .gradientBorderColor {
   border-color: "linear-gradient(to left, #67E59A , #DBA111 , #ED1C24)";
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}

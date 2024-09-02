@@ -20,17 +20,9 @@ const Ads = ({ showAds, setShowAds }: TAds) => {
     }
     setCounter(counter - 1);
   }, 1100);
-  // const redirect = () => {
-  //   if (location.pathname !== "/ticketStatus") {
-  //     navigate("/ticketStatus");
-  //   }
-  // };
 
   return (
-    <Dialog.Root
-      open={showAds}
-      onOpenChange={(open) => !open && setShowAds(false)}
-    >
+    <Dialog.Root open={showAds} onOpenChange={(open) => !open && setShowAds(false)}>
       <Dialog.Portal>
         <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow fixed inset-0" />
         <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] h-full w-full translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-black p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
