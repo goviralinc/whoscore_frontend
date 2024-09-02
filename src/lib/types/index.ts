@@ -32,6 +32,8 @@ export type Bet = {
 
 export type Platform = "sportybet" | "bet9ja" | "betking";
 
+export type UseTicketInfo = { platform: { value: string; name: string }; ticketID: string };
+
 export type TicketInfo = {
   date: string;
   type: "Multiple" | "Single";

@@ -1,7 +1,6 @@
 "use client";
 
-import { UseTicketInfo } from "@/lib/store/ticket.store";
-import { Bet, Platform, TicketInfo } from "@/lib/types";
+import { Bet, Platform, UseTicketInfo } from "@/lib/types";
 import { getPlatformLogo } from "@/lib/utils/get-logo";
 import Image from "next/image";
 import { FaCaretDown } from "react-icons/fa6";
@@ -9,13 +8,10 @@ import { FaCheckCircle } from "react-icons/fa";
 
 type Props = {
   bet: Bet;
-  info: TicketInfo;
   ticketInfo: UseTicketInfo;
 };
 
-const BetDetail = ({ bet, info, ticketInfo: t }: Props) => {
-  console.log({ bet });
-
+const BetDetail = ({ bet, ticketInfo: t }: Props) => {
   return (
     <div className="bg-[#1B1B1B] rounded-2xl mb-5 pt-3 pb-5 px-1">
       <div className="bg-[#252525]  w-full flex justify-between items-center gap-3 p-3 text-dark-200 font-semibold rounded-full text-xs">

@@ -14,8 +14,9 @@ import { useState } from "react";
 import Ads from "@/components/Common/Ads";
 import { toastError } from "@/lib/utils/toast";
 import { useModal } from "@/lib/providers/modal";
-import useTicket from "@/lib/store/ticket.store";
+import useTicket, { useRecentTickets } from "@/lib/store/ticket.store";
 import { useRouter } from "next/navigation";
+import { ITicket } from "@/lib/types";
 
 const formSchema = z.object({
   ticketId: z.string().min(2, {
@@ -35,10 +36,13 @@ const TicketIdForm = () => {
   const { hideModal, showModal } = useModal();
 
   const { updateItem, updateTicketInfo } = useTicket();
+  const { addTicket } = useRecentTickets();
 
   const router = useRouter();
 
-  const { mutate, isPending, data } = useMutation({ mutationFn: getTicketInfo, mutationKey: ["getTicketInfo"] });
+  // const { mutate, isPending, data } = useMutation({ mutationFn: getTicketInfo });
+  const [loading, setLoading] = useState(false);
+  const [ticketData, setTicketData] = useState<ITicket | null>(null);
 
   const getPlatformName = (name: string) => {
     if (name.toLowerCase() === "sportybet") {
@@ -50,27 +54,30 @@ const TicketIdForm = () => {
     }
   };
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    mutate(values, {
-      onSuccess: () => {
-        // console.log({ data });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true);
 
-        if (!data) {
-          toastError("No ticket found with the provided ID");
-          return;
-        }
+    const data = await getTicketInfo(values);
 
-        updateItem(data);
-        updateTicketInfo({
-          platform: { value: values.betPlatform, name: getPlatformName(values.betPlatform) },
-          ticketID: values.ticketId,
-        });
-        showModal(<Ads proceedAction={() => (hideModal(), router.push(`/ticket/details`))} />);
-      },
-      onError: () => {
-        toastError("An error occurred. Please try again");
-      },
+    console.log(data);
+
+    setLoading(false);
+
+    if (!data) {
+      toastError("No ticket found with the provided ID");
+      return;
+    }
+
+    const platform = { value: values.betPlatform, name: getPlatformName(values.betPlatform) };
+    console.log({ date: new Date(), ticketID: values.ticketId, platform, ...data });
+
+    updateItem(data as ITicket);
+    updateTicketInfo({
+      platform,
+      ticketID: values.ticketId,
     });
+    addTicket({ date: new Date(), ticketID: values.ticketId, platform, ...data });
+    showModal(<Ads proceedAction={() => (hideModal(), router.push(`/ticket/details`))} />);
   }
 
   return (
@@ -95,7 +102,7 @@ const TicketIdForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-[#8b8b8b] text-sm">Select Platform</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isPending}>
+              <Select onValueChange={field.onChange} defaultValue={field.value} disabled={loading}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select platform" />
@@ -114,7 +121,7 @@ const TicketIdForm = () => {
           )}
         />
 
-        <Button type="submit" className="w-full font-bold rounded-xl" loading={isPending}>
+        <Button type="submit" className="w-full font-bold rounded-xl" loading={loading}>
           Load Games
         </Button>
         {/* <AlertDialog>

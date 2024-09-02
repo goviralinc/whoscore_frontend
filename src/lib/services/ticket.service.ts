@@ -9,12 +9,10 @@ export const getTicketInfo = async (body: TicketInfo) => {
       data: { data },
     } = await publicApi.post<ApiResponse<ITicket>>("/ticket-id/get-info", body);
 
+    // console.log({ axiosData: data });
+
     return data;
   } catch (e: any) {
-    // if (axios.isAxiosError(e)) {
-    // handle axios error
-    //   throw new Error(e);
-    // }
     throw new Error(e);
   }
 };

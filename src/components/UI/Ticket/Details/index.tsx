@@ -86,7 +86,7 @@ function TicketDetails() {
           {bets?.length > 0 ? (
             <div>
               {bets.map((bet, id) => (
-                <BetDetail bet={bet} key={id} info={info} ticketInfo={ticketInfo} />
+                <BetDetail bet={bet} key={id} ticketInfo={ticketInfo} />
               ))}
             </div>
           ) : (
