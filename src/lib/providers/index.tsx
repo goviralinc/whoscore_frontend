@@ -7,6 +7,7 @@ import { Toaster as SonnerToaster } from "sonner";
 
 import { useTheme } from "../store/global.store";
 import { toastOptions, toastOptionsDark } from "../utils/toast";
+import { ModalProvider } from "./modal";
 
 export const queryClient = new QueryClient();
 
@@ -31,7 +32,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
           style: !isDarkMode ? toastOptions : toastOptionsDark,
         }}
       />
-      {children}
+      <ModalProvider>{children}</ModalProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
     // </SessionProvider>
