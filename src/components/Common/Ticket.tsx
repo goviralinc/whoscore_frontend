@@ -28,7 +28,7 @@ const Ticket = (ticketItem: RecentTicketsItem) => {
         </div>
         <div className="space-y-1">
           <span className="font-semibold">{ticketID}</span>
-          <span className="text-dark-200 text-xs block">{format(date, "dd/M/y k:m a")}</span>
+          <span className="text-dark-200 text-xs block">{format(date, "dd/M/y KK:mm a")}</span>
         </div>
       </div>
 
