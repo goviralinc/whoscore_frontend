@@ -26,12 +26,14 @@ const Ads = ({ proceedAction }: Props) => {
   return (
     <Modal onClose={hideModal} isAutomatic={false}>
       <div className="w-full h-full flex flex-col gap-6 overflow-hidden text-center text-white">
-        <video
-          className="w-full h-5/6 object-cover object-center md:mb-4 border-b border-b-gray-600"
-          src="https://res.cloudinary.com/dfhnapzh3/video/upload/v1674325136/accelerated_plus_kpv2cf.mp4"
-          autoPlay
-          muted
-        ></video>
+        <div className="max-h-[28rem] overflow-hidden">
+          <video
+            className="w-full h-full object-cover object-center md:mb-4 border-b border-b-gray-600"
+            src="https://res.cloudinary.com/dfhnapzh3/video/upload/v1674325136/accelerated_plus_kpv2cf.mp4"
+            autoPlay
+            muted
+          ></video>
+        </div>
 
         <div className="px-2 flex ">
           <button
