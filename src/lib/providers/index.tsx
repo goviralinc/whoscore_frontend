@@ -8,6 +8,8 @@ import { Toaster as SonnerToaster } from "sonner";
 import { useTheme } from "../store/global.store";
 import { toastOptions, toastOptionsDark } from "../utils/toast";
 import { ModalProvider } from "./modal";
+import { SessionProvider } from "next-auth/react";
+import AuthProvider from "./auth.provider";
 
 export const queryClient = new QueryClient();
 
@@ -25,17 +27,19 @@ const Providers = ({ children }: { children: ReactNode }) => {
   }, [isDarkMode]);
 
   return (
-    // <SessionProvider>
-    <QueryClientProvider client={queryClient}>
-      <SonnerToaster
-        toastOptions={{
-          style: !isDarkMode ? toastOptions : toastOptionsDark,
-        }}
-      />
-      <ModalProvider>{children}</ModalProvider>
-      <ReactQueryDevtools />
-    </QueryClientProvider>
-    // </SessionProvider>
+    <SessionProvider>
+      <QueryClientProvider client={queryClient}>
+        <SonnerToaster
+          toastOptions={{
+            style: !isDarkMode ? toastOptions : toastOptionsDark,
+          }}
+        />
+        <AuthProvider>
+          <ModalProvider>{children}</ModalProvider>
+        </AuthProvider>
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </SessionProvider>
   );
 };
 
