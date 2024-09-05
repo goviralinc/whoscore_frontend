@@ -47,3 +47,11 @@ export type ITicket = {
   bets: Bet[];
   info: TicketInfo;
 };
+
+export type LiveScore = {
+  competition_id: string;
+  country_id: number;
+  fixture_id: number;
+  lang: string;
+  team_id: number;
+};
