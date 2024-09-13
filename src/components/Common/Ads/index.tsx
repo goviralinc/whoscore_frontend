@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Ads = ({ proceedAction }: Props) => {
-  const [counter, setCounter] = useState(5);
+  const [counter, setCounter] = useState(1);
   const router = useRouter();
 
   setTimeout(() => {

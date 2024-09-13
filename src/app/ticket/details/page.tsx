@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: "Ticket Details",
 };
 
-const Page = () => <TicketDetails />;
+type Props = {
+  searchParams: { "ticket-id": string; platform: string };
+};
 
+const Page = (props: Props) => {
+  return <TicketDetails {...props} />;
+};
 export default Page;

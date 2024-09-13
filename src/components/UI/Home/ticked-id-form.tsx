@@ -8,7 +8,6 @@ import { betPlatforms } from "@/lib/data";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useMutation } from "@tanstack/react-query";
 import { getTicketInfo } from "@/lib/services/ticket.service";
 import { useState } from "react";
 import Ads from "@/components/Common/Ads";
@@ -17,6 +16,7 @@ import { useModal } from "@/lib/providers/modal";
 import useTicket, { useRecentTickets } from "@/lib/store/ticket.store";
 import { useRouter } from "next/navigation";
 import { ITicket } from "@/lib/types";
+import { getPlatformName } from "@/lib/utils/helpers";
 
 const formSchema = z.object({
   ticketId: z.string().min(2, {
@@ -36,30 +36,17 @@ const TicketIdForm = () => {
   const { hideModal, showModal } = useModal();
 
   const { updateItem, updateTicketInfo } = useTicket();
-  const { addTicket } = useRecentTickets();
+  const { addTicket, updateIsRecent } = useRecentTickets();
 
   const router = useRouter();
 
   // const { mutate, isPending, data } = useMutation({ mutationFn: getTicketInfo });
   const [loading, setLoading] = useState(false);
-  const [ticketData, setTicketData] = useState<ITicket | null>(null);
-
-  const getPlatformName = (name: string) => {
-    if (name.toLowerCase() === "sportybet") {
-      return "SportyBet";
-    } else if (form.getValues("betPlatform") === "bet9ja") {
-      return "Bet9ja";
-    } else {
-      return "BetKing";
-    }
-  };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
 
     const data = await getTicketInfo(values);
-
-    console.log(data);
 
     setLoading(false);
 
@@ -69,15 +56,21 @@ const TicketIdForm = () => {
     }
 
     const platform = { value: values.betPlatform, name: getPlatformName(values.betPlatform) };
-    console.log({ date: new Date(), ticketID: values.ticketId, platform, ...data });
 
     updateItem(data as ITicket);
     updateTicketInfo({
       platform,
       ticketID: values.ticketId,
     });
+    updateIsRecent(false);
     addTicket({ date: new Date(), ticketID: values.ticketId, platform, ...data });
-    showModal(<Ads proceedAction={() => (hideModal(), router.push(`/ticket/details`))} />);
+    showModal(
+      <Ads
+        proceedAction={() => (
+          hideModal(), router.push(`/ticket/details?ticket-id=${values.ticketId}&platform=${values.betPlatform}`)
+        )}
+      />
+    );
   }
 
   return (

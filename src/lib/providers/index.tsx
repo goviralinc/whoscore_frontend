@@ -11,7 +11,11 @@ import { ModalProvider } from "./modal";
 import { SessionProvider } from "next-auth/react";
 import AuthProvider from "./auth.provider";
 
-export const queryClient = new QueryClient();
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {},
+  },
+});
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -37,7 +41,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
         <AuthProvider>
           <ModalProvider>{children}</ModalProvider>
         </AuthProvider>
-        <ReactQueryDevtools />
+        <ReactQueryDevtools client={queryClient} />
       </QueryClientProvider>
     </SessionProvider>
   );

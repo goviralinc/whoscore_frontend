@@ -1,4 +1,4 @@
-import { RecentTicketsItem } from "@/lib/store/ticket.store";
+import { RecentTicketsItem, useRecentTickets } from "@/lib/store/ticket.store";
 import { Platform } from "@/lib/types";
 import { getPlatformLogo } from "@/lib/utils/get-logo";
 import Image from "next/image";
@@ -14,8 +14,14 @@ const Ticket = (ticketItem: RecentTicketsItem) => {
     info: { potentialWin },
   } = ticketItem;
 
+  const { updateIsRecent } = useRecentTickets();
+
   return (
-    <Link href="/ticket/details" className="flex items-center justify-between gap-4 py-2 text-xs">
+    <Link
+      href={`/ticket/details?ticket-id=${ticketID}&platform=${platform.value}`}
+      className="flex items-center justify-between gap-4 py-2 text-xs"
+      onClick={() => updateIsRecent(true)}
+    >
       <div className="flex items-center gap-2">
         <div className="size-12 rounded-full overflow-hidden relative">
           <Image

@@ -22,11 +22,12 @@ type Ticket = { ticketID: string; date: Date | string };
 
 export type RecentTicketsItem = ITicket & Ticket & UseTicketInfo;
 
-type RecentTicketsState = { items: RecentTicketsItem[] };
+type RecentTicketsState = { items: RecentTicketsItem[]; isRecent: boolean };
 
 type RecentTicketsActions = {
   addTicket: (ticket: RecentTicketsItem) => void;
   removeTicket: (ticket: RecentTicketsItem) => void;
+  updateIsRecent: (isRecent: boolean) => void;
   clearTickets: () => void;
 };
 
@@ -36,12 +37,14 @@ export const useRecentTickets = create<RecentTickets>()(
   persist(
     (set, get) => ({
       items: [],
+      isRecent: false,
       addTicket: (ticket) =>
         set((state) => {
           const items = get().items;
 
           if (items.find((item) => item.ticketID === ticket.ticketID)) {
-            return { ...state, items: [...state.items] };
+            const filteredItems = items.filter((item) => item.ticketID !== ticket.ticketID);
+            return { ...state, items: [...filteredItems, ticket] };
           }
 
           if (items.length >= 5) {
@@ -52,6 +55,7 @@ export const useRecentTickets = create<RecentTickets>()(
           return { ...state, items: [...state.items, ticket] };
         }),
       removeTicket: (ticket) => set((state) => ({ items: state.items.filter((item) => item !== ticket) })),
+      updateIsRecent: (isRecent) => set((state) => ({ ...state, isRecent })),
       clearTickets: () => set((state) => ({ items: [] })),
     }),
     { name: "recent-tickets" }
