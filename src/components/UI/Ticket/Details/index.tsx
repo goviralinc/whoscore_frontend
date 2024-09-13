@@ -30,7 +30,6 @@ const TicketDetails = ({ searchParams: { "ticket-id": ticketId, platform } }: Pr
   const { data: ticket, isPending } = useQuery({
     queryFn: () => getTicketInfo({ ticketId, betPlatform: platform }),
     queryKey: ["ticket-details", ticketId],
-    enabled: isRecent,
   });
 
   const platformData = { value: platform, name: getPlatformName(platform ?? "") };
@@ -46,13 +45,7 @@ const TicketDetails = ({ searchParams: { "ticket-id": ticketId, platform } }: Pr
     }
   }, [ticket, isPending]);
 
-  if ((!ticketId || !platform) && isRecent) {
-    toastError("No ticket found", { id: "no-ticket-found" });
-    router.replace("/");
-    return null;
-  }
-
-  if (!isRecent && (!item || !ticketInfo)) {
+  if (!ticketId || !platform) {
     toastError("No ticket found", { id: "no-ticket-found" });
     router.replace("/");
     return null;
