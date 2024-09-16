@@ -5,12 +5,17 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Modal from "../Modal";
 import { useModal } from "@/lib/providers/modal";
+import { getTicketInfo } from "@/lib/services/ticket.service";
+import { useQuery } from "@tanstack/react-query";
+import { Platform } from "@/lib/types";
 
 type Props = {
   proceedAction: () => void;
+  ticketId: string;
+  platform: string;
 };
 
-const Ads = ({ proceedAction }: Props) => {
+const Ads = ({ proceedAction, ticketId, platform }: Props) => {
   const [counter, setCounter] = useState(1);
   const router = useRouter();
 
@@ -22,6 +27,11 @@ const Ads = ({ proceedAction }: Props) => {
   }, 1100);
 
   const { hideModal } = useModal();
+
+  const { data: ticket, isPending } = useQuery({
+    queryFn: () => getTicketInfo({ ticketId, betPlatform: platform }),
+    queryKey: ["ticket-details", ticketId],
+  });
 
   return (
     <Modal onClose={hideModal} isAutomatic={false}>

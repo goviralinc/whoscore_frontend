@@ -17,6 +17,9 @@ import useTicket, { useRecentTickets } from "@/lib/store/ticket.store";
 import { useRouter } from "next/navigation";
 import { ITicket } from "@/lib/types";
 import { getPlatformName } from "@/lib/utils/helpers";
+import Spinner from "@/components/Common/Loaders/spinner";
+import { AnimatePresence, motion } from "framer-motion";
+import { opacityVariant } from "@/lib/utils/variants";
 
 const formSchema = z.object({
   ticketId: z.string().min(2, {
@@ -69,13 +72,31 @@ const TicketIdForm = () => {
         proceedAction={() => (
           hideModal(), router.push(`/ticket/details?ticket-id=${values.ticketId}&platform=${values.betPlatform}`)
         )}
+        ticketId={values.ticketId}
+        platform={values.betPlatform}
       />
     );
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 relative">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 relative overflow-hidden rounded-lg">
+        <AnimatePresence mode="wait">
+          {loading && (
+            <motion.div
+              {...opacityVariant}
+              className="absolute top-0 left-0 w-full h-full backdrop-blur-sm flex items-center justify-center"
+            >
+              <div className="space-y-1 text-center">
+                <div className="grid place-content-center animate-pulse">
+                  <Spinner />
+                </div>
+                <p className="opacity-50 text-xs">Loading...</p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <FormField
           control={form.control}
           name="ticketId"
@@ -115,7 +136,7 @@ const TicketIdForm = () => {
         />
 
         <Button type="submit" className="w-full font-bold rounded-xl" loading={loading}>
-          Load Games
+          {!loading ? "Load Games" : "Loading..."}
         </Button>
         {/* <AlertDialog>
           <AlertDialogTrigger asChild>
