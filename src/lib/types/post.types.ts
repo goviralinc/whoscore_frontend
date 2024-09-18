@@ -1,7 +1,9 @@
+import { Platform } from ".";
+
 // TICKET ID ===============
 export type TicketInfo = {
   ticketId: string;
-  betPlatform: "sportybet" | "1xbet" | (string & {});
+  betPlatform: Platform;
 };
 
 export type GetBooked = TicketInfo;

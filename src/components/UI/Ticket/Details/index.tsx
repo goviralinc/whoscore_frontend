@@ -17,7 +17,7 @@ import Logo from "@/components/Common/Logos";
 import Spinner from "@/components/Common/Loaders/spinner";
 
 type Props = {
-  searchParams: { "ticket-id": string; platform: string };
+  searchParams: { "ticket-id": string; platform: Platform };
 };
 
 const TicketDetails = ({ searchParams: { "ticket-id": ticketId, platform } }: Props) => {

@@ -28,6 +28,7 @@ export type Bet = {
   awayteam: string;
   time: string;
   odds: string;
+  bet_status: "Lost" | "Won";
 };
 
 export type Platform = "sportybet" | "bet9ja" | "betking";

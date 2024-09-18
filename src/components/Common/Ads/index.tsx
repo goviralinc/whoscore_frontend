@@ -12,7 +12,7 @@ import { Platform } from "@/lib/types";
 type Props = {
   proceedAction: () => void;
   ticketId: string;
-  platform: string;
+  platform: Platform;
 };
 
 const Ads = ({ proceedAction, ticketId, platform }: Props) => {

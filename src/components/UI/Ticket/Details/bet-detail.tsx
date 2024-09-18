@@ -5,6 +5,7 @@ import { getPlatformLogo } from "@/lib/utils/get-logo";
 import Image from "next/image";
 import { FaCaretDown } from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
+import { IoIosCloseCircle } from "react-icons/io";
 
 type Props = {
   bet: Bet;
@@ -39,9 +40,13 @@ const BetDetail = ({ bet, ticketInfo: t }: Props) => {
             <span className="text-dark-200">{bet.oddType}</span>
             <div className="flex items-center gap-1">
               <span className="text-grey">Status:</span>
-              <div className="flex items-center gap-1 text-primary">
-                <FaCheckCircle size={12} className="" />
-                <span>Won</span>
+              <div className={`flex items-center gap-1 ${bet.bet_status === "Won" ? "text-primary" : "text-red-300"}`}>
+                {bet.bet_status === "Won" ? (
+                  <FaCheckCircle size={12} className="" />
+                ) : (
+                  <IoIosCloseCircle size={14} className="" />
+                )}
+                <span>{bet.bet_status}</span>
               </div>
             </div>
           </div>
