@@ -56,7 +56,7 @@ const BetDetail = ({ bet, ticketInfo: t }: Props) => {
               <span>
                 {bet.hometeam} vs {bet.awayteam}
               </span>
-              {bet.time !== "Event Ended" && <strong className="text-[#67E59A] block mt-2">2 : 0 H2 | 56'</strong>}
+              {bet.scores && <strong className="text-[#67E59A] block mt-2">{bet.scores}</strong>}
             </div>
             <span className="text-dark-200 self-end text-xs flex-shrink-0">{bet.time}</span>
           </div>

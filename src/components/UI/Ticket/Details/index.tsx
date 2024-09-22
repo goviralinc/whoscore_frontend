@@ -13,7 +13,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getTicketInfo } from "@/lib/services/ticket.service";
 import { getPlatformName } from "@/lib/utils/helpers";
 import { toast } from "sonner";
-import Logo from "@/components/Common/Logos";
 import Spinner from "@/components/Common/Loaders/spinner";
 
 type Props = {
@@ -22,8 +21,6 @@ type Props = {
 
 const TicketDetails = ({ searchParams: { "ticket-id": ticketId, platform } }: Props) => {
   const { item, ticketInfo, updateItem, updateTicketInfo } = useTicket();
-
-  const { isRecent } = useRecentTickets();
 
   const router = useRouter();
 

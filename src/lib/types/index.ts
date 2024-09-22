@@ -26,6 +26,7 @@ export type Bet = {
   oddType: string;
   hometeam: string;
   awayteam: string;
+  scores: number | null;
   time: string;
   odds: string;
   bet_status: "Lost" | "Won";
