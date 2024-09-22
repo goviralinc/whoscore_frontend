@@ -1,4 +1,5 @@
 import TicketDetails from "@/components/UI/Ticket/Details";
+import { Platform } from "@/lib/types";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  searchParams: { "ticket-id": string; platform: string };
+  searchParams: { "ticket-id": string; platform: Platform };
 };
 
 const Page = (props: Props) => {
